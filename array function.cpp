@@ -1,302 +1,327 @@
 #include <stdio.h>
 
-#define MAX_SIZE 100
+int size = 0;
+int max;
+int arr[100];
+
+int creat() {
+    printf("Enter the max size of the array: ");
+    scanf("%d", &max);
+    printf("Enter the no. of elements you want to add in the array : ");
+    scanf("%d", &size);
+    if (size > max) {
+        printf("The size is more than the limit of the array. \n");
+    } else if (size == 0) {
+        printf("NO MEMORY ALLOCATION\n");
+    } else {
+        printf("Enter elements: ");
+        for (int i = 0; i < size; i++) {
+            scanf("%d", &arr[i]);
+        }
+    }
+}
+
+void display() {
+    printf("Array contains: ");
+    for (int i = 0; i < size; i++) {
+        printf(" %d", arr[i]);
+    }
+    printf("\n");
+}
+
+void insertionBeg() {
+    if (size >= max) {
+        printf("Array is Full\n");
+    } else {
+        int val;
+        printf("Enter element you want to insert at the beginning: ");
+        scanf("%d", &val);
+
+        for (int i = size; i > 0; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = val;
+        (size)++;
+    }
+}
+
+void insertionEnd() {
+    if (size >= max) {
+        printf("Array is full\n");
+    } else {
+        int val;
+        printf("Enter the element you want to insert at END: ");
+        scanf("%d", &val);
+        arr[size] = val;
+        (size)++;
+    }
+}
+
+void insertAP() {
+    int pos;
+    printf("Enter the Position to insert: ");
+    scanf("%d", &pos);
+    if (pos < 0 || pos > size) {
+        printf("INVALID POSITION\n");
+    } else if (size >= max) {
+        printf("Array is Full\n");
+    } else {
+        int val;
+        printf("Enter the element to insert: ");
+        scanf("%d", &val);
+
+        for (int i = size; i > pos; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[pos] = val;
+        (size)++;
+    }
+}
+
+int insertAE() {
+    int element;
+    printf("Enter the value after which you want to insert: ");
+    scanf("%d", &element);
+
+    int i;
+    for (i = 0; i < size; i++) {
+        if (arr[i] == element) {
+            break;
+        }
+    }
+
+    if (i == size) {
+        printf("Element not found in Array\n");
+    } else {
+        int val;
+        printf("Enter Element you want to insert: ");
+        scanf("%d", &val);
+
+        for (int j = size; j > i + 1; j--) {
+            arr[j] = arr[j - 1];
+        }
+        arr[i + 1] = val;
+        (size)++;
+    };
+}
+
+void insertionBE() {
+    int element;
+    printf("Enter the element to be inserted Before: ");
+    scanf("%d", &element);
+
+    int i;
+    for (i = 0; i < size; i++) {
+        if (arr[i] == element) {
+            break;
+        }
+    }
+
+    if (i == size) {
+        printf("Element not found in Array\n");
+    } else {
+        int val;
+        printf("Enter Element: ");
+        scanf("%d", &val);
+
+        for (int j = size; j > i; j--) {
+            arr[j] = arr[j - 1];
+        }
+        arr[i] = val;
+        (size)++;
+    }
+}
+
+void deleteionBEG() {
+    if (size <= 0) {
+        printf("ARRAY IS EMPTY\n");
+    } else {
+        for (int i = 0; i < size; i++) {
+            arr[i] = arr[i + 1];
+        }
+        (size)--;
+    }
+}
+
+void deleteionEND() {
+    if (size <= 0) {
+        printf("ARRAY IS EMPTY\n");
+    } else {
+        (size)--;
+    }
+}
+
+void deleteionPos() {
+    if (size <= 0) {
+        printf("ARRAY IS EMPTY\n");
+    } else {
+        int pos;
+        printf("Enter the position you want to delete:");
+        scanf("%d", &pos);
+        if (pos < 0) {
+            printf("Invalid Position");
+        } else {
+            for (int i = pos - 1; i < size - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            (size)--;
+        }
+    }
+}
+
+void deleteELEMENT() {
+    if (size <= 0) {
+        printf("Array is EMPTY.\n");
+    } else {
+        int val;
+        printf("Enter the element you want to delete: ");
+        scanf("%d", &val);
+
+        int i;
+        for (i = 0; i < size; i++) {
+            if (arr[i] == val) {
+                for (int j = i; j < size - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                (size)--;
+                break;
+            }
+        }
+
+        if (i == size) {
+            printf("Element not found in Array\n");
+        }
+    }
+}
+
+void deleteAE() {
+    if (size <= 0) {
+        printf("Array is empty. Deletion is not possible.\n");
+    } else {
+        int val;
+        printf("Enter the element after which you want to delete: ");
+        scanf("%d", &val);
+
+        int i;
+        for (i = 0; i < size; i++) {
+            if (arr[i] == val) {
+                for (int j = i + 1; j < size - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                (size)--;
+                break;
+            }
+        }
+
+        if (i == size) {
+            printf("Element not found in Array\n");
+        }
+    }
+}
+
+void deleteBE() {
+    if (size <= 0) {
+        printf("Array is empty. Deletion is not possible.\n");
+    } else {
+        int val;
+        printf("Enter the element before which you want to delete: ");
+        scanf("%d", &val);
+
+        int i;
+        for (i = 0; i < size; i++) {
+            if (arr[i] == val) {
+                for (int j = i - 1; j < size - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                (size)--;
+            }
+        }
+
+        if (i == size) {
+            printf("Element not found in Array\n");
+        }
+    }
+}
+
+void deleteArray() {
+    size = 0;
+    printf("Array is now empty.\n");
+}
 
 int main() {
     int choice;
-    int size = 0;
-    int loc;
-    int arr[MAX_SIZE];
-
-    // Menu-driven program
     do {
         printf("\n----------------------------------------");
         printf("\n                MENU                  ");
         printf("\n--------------------------------------");
         printf("\n1. Enter the Elements of the array ");
         printf("\n2. Display the array ");
-        printf("\n3. Insertion at the beginning ");
-        printf("\n4. Insertion at end");
-        printf("\n5. Insertion at a particular location");
-        printf("\n6. Insertion after an element");
-        printf("\n7. Insertion before an element");
-        printf("\n8. Deletion at beginning");
-        printf("\n9. Deletion at end");
-        printf("\n10. Deletion at a particular location");
-        printf("\n11. Deletion of an element");
-        printf("\n12. Deletion after an element");
-        printf("\n13. Deletion before an element");
-        printf("\n14. Exit ");
+        printf("\n3. Insert at the beginning ");
+        printf("\n4. Insert at the End ");
+        printf("\n5. Insert at the Particular location ");
+        printf("\n6. Insert after a particular element ");
+        printf("\n7. Insert before a particular element ");
+        printf("\n8. Delete an element from the beginning ");
+        printf("\n9. Delete an element at the END ");
+        printf("\n10. Delete an element from the particular location ");
+        printf("\n11. Delete an element by value ");
+        printf("\n12. Delete an element by after any value ");
+        printf("\n13. Delete an element by before any value ");
+        printf("\n14. Delete entire Array ");
+        printf("\n15. Exit ");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
-        switch(choice) {
-            case 1: {
-                printf("Enter the number of elements you want to enter: ");
-                scanf("%d", &size);
-                if (size > MAX_SIZE) {
-                    printf("Invalid size.\n");
-                    break;
-                }
-                printf("Enter the elements: ");
-                for (int i = 0; i < size; i++) {
-                    scanf("%d", &arr[i]);
-                }
-                printf("Elements inserted successfully.\n");
+        switch (choice) {
+            case 1:
+                creat();
                 break;
-            }
-            case 2: {
-                if (size == 0) {
-                    printf("Array is empty.\n");
-                    break;
-                }
-                printf("Array contains: ");
-                for (int i = 0; i < size; i++) {
-                    printf("%d ", arr[i]);
-                }
-                printf("\n");
+            case 2:
+                display();
                 break;
-            }
-            case 3: {
-                if (size >= MAX_SIZE) {
-                    printf("Array is full. Insertion at the beginning is not possible.\n");
-                    break;
-                }
-                int beg;
-                printf("Enter the element to insert at the beginning: ");
-                scanf("%d", &beg);
-                // Shift elements to the right to make space for the new element
-                for (int i = size; i > 0; i--) {
-                    arr[i] = arr[i - 1];
-                }
-                // Insert the new element at the beginning
-                arr[0] = beg;
-                size++;
-                printf("Element inserted at the beginning successfully.\n");
+            case 3:
+                insertionBeg();
                 break;
-            }
-            case 4: {
-                if (size >= MAX_SIZE) {
-                    printf("Array is full. Insertion at the end is not possible.\n");
-                    break;
-                }
-                int end;
-                printf("Enter the element to insert at the end: ");
-                scanf("%d", &end);
-                arr[size] = end; // Inserting the element at the end
-                size++; // Increasing the size of the array
-                printf("Element inserted at the end successfully.\n");
+            case 4:
+                insertionEnd();
                 break;
-            }
-            case 5: {
-                if (size >= MAX_SIZE) {
-                    printf("Array is full. Insertion is not possible.\n");
-                    break;
-                }
-                int element;
-                printf("Enter the location you want to insert the element: ");
-                scanf("%d", &loc);
-                printf("Enter the element you want to insert: ");
-                scanf("%d", &element);
-                if (loc < 0 || loc > size) {
-                    printf("Invalid location. Insertion is not possible.\n");
-                    break;
-                }
-                // Shift elements to the right to make space for the new element
-                for (int i = size; i > loc; i--) {
-                    arr[i] = arr[i - 1];
-                }
-                // Insert the new element at the specified location
-                arr[loc] = element;
-                size++;
-                printf("Element successfully inserted.\n");
+            case 5:
+                insertAP();
                 break;
-            }
-            case 6: {
-                if (size >= MAX_SIZE) {
-                    printf("Array is full. Insertion is not possible.\n");
-                    break;
-                }
-                int element, ae;
-                printf("Enter the element you want to insert: ");
-                scanf("%d", &element);
-                printf("Enter the element after which you want to insert: ");
-                scanf("%d", &ae);
-                for (int i = 0; i < size; i++) {
-                    if (arr[i] == ae) {
-                        // Shift elements to the right to make space for the new element
-                        for (int j = size; j > i + 1; j--) {
-                            arr[j] = arr[j - 1];
-                        }
-                        // Insert the new element after the specified element
-                        arr[i + 1] = element;
-                        size++;
-                        printf("Element successfully inserted after %d.\n", ae);
-                        break;
-                    }
-                }
-                if (size == 0) {
-                    printf("Element %d not found in the array. Insertion is not possible.\n", ae);
-                }
+            case 6:
+                insertAE();
                 break;
-            }
-            case 7: {
-                if (size >= MAX_SIZE) {
-                    printf("Array is full. Insertion is not possible.\n");
-                    break;
-                }
-                int element, be;
-                printf("Enter the element you want to insert: ");
-                scanf("%d", &element);
-                printf("Enter the element before which you want to insert: ");
-                scanf("%d", &be);
-                for (int i = 0; i < size; i++) {
-                    if (arr[i] == be) {
-                        // Shift elements to the right to make space for the new element
-                        for (int j = size; j > i; j--) {
-                            arr[j] = arr[j - 1];
-                        }
-                        // Insert the new element before the specified element
-                        arr[i] = element;
-                        size++;
-                        printf("Element successfully inserted before %d.\n", be);
-                        break;
-                    }
-                }
-                if (size == 0) {
-                    printf("Element %d not found in the array. Insertion is not possible.\n", be);
-                }
+            case 7:
+                insertionBE();
                 break;
-            }
-            case 8: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                // Shift elements to the left to remove the first element
-                for (int i = 0; i < size - 1; i++) {
-                    arr[i] = arr[i + 1];
-                }
-                size--;
-                printf("Element at the beginning deleted successfully.\n");
+            case 8:
+                deleteionBEG();
                 break;
-            }
-            case 9: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                // Decrease the size of the array to delete the last element
-                size--;
-                printf("Element at the end deleted successfully.\n");
+            case 9:
+                deleteionEND();
                 break;
-            }
-        
-            case 10: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                printf("Enter the location you want to delete the element: ");
-                scanf("%d", &loc);
-                if (loc < 0 || loc >= size) {
-                    printf("Invalid location. Deletion is not possible.\n");
-                    break;
-                }
-                // Shift elements to the left to remove the specified element
-                for (int i = loc; i < size - 1; i++) {
-                    arr[i] = arr[i + 1];
-                }
-                // Decrease the size of the array
-                size--;
-                printf("Element at location %d deleted successfully.\n", loc);
+            case 10:
+                deleteionPos();
                 break;
-            }
-            case 11: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                int e;
-                printf("Enter the element you want to delete: ");
-                scanf("%d", &e);
-                int found = 0;
-                for (int i = 0; i < size; i++) {
-                    if (arr[i] == e) {
-                        // Shift elements to the left to remove the specified element
-                        for (int j = i; j < size - 1; j++) {
-                            arr[j] = arr[j + 1];
-                        }
-                        size--;
-                        found = 1;
-                        printf("Element %d deleted successfully.\n", e);
-                        break;
-                    }
-                }
-                if (!found) {
-                    printf("Element %d not found in the array. Deletion is not possible.\n", e);
-                }
+            case 11:
+                deleteELEMENT();
                 break;
-            }
-            case 12: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                int ae;
-                printf("Enter the element after which you want to delete: ");
-                scanf("%d", &ae);
-                int found = 0;
-                for (int i = 0; i < size - 1; i++) {
-                    if (arr[i] == ae) {
-                        // Shift elements to the left to remove the element after specified element
-                        for (int j = i + 1; j < size - 1; j++) {
-                            arr[j] = arr[j + 1];
-                        }
-                        size--;
-                        found = 1;
-                        printf("Element after %d deleted successfully.\n", ae);
-                        break;
-                    }
-                }
-                if (!found) {
-                    printf("Element %d not found in the array or it is the last element. Deletion is not possible.\n", ae);
-                }
+            case 12:
+                deleteAE();
                 break;
-            }
-            case 13: {
-                if (size <= 0) {
-                    printf("Array is empty. Deletion is not possible.\n");
-                    break;
-                }
-                int be;
-                printf("Enter the element before which you want to delete: ");
-                scanf("%d", &be);
-                int found = 0;
-                for (int i = 1; i < size; i++) {
-                    if (arr[i] == be) {
-                        // Shift elements to the left to remove the element before specified element
-                        for (int j = i - 1; j < size - 1; j++) {
-                            arr[j] = arr[j + 1];
-                        }
-                        size--;
-                        found = 1;
-                        printf("Element before %d deleted successfully.\n", be);
-                        break;
-                    }
-                }
-            }
-        	case 14: {
-			
-                printf("GOODBYE\n");
+            case 13:
+                deleteBE();
                 break;
-            }
-            default: {
-                printf("INVALID CHOICE\n");
-            }
+            case 14:
+                deleteArray();
+                break;
+            case 15:
+                printf("\nGOODBYE\n");
+                break;
+            default:
+                printf("Invalid choice\n");
         }
-
-    } while (choice != 14);
+    } while (choice != 15);
 
     return 0;
 }

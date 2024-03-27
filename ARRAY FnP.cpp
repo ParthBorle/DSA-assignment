@@ -44,14 +44,14 @@ int insertion_beg(int arr[], int *size) {
     (*size)++;
 
     printf("Element inserted at the beginning successfully.\n");
-    return 0;
+   
 }
 
 // Function to insert an element at the end of the array
 int insertion_end(int arr[], int *size) {
     if (*size >= 100) { // Check if array is full
         printf("Array is full. Insertion at the end is not possible.\n");
-        return 0;
+       
     }
 	
     int end;
@@ -60,14 +60,14 @@ int insertion_end(int arr[], int *size) {
     arr[*size] = end; // Inserting the element at the end
     (*size)++;   	//increasing the size of array
     printf("Element inserted at the end successfully.\n");
-    return 0;
+    
 }
 
 // Function to insert an element at a particular location in the array
 int insertion_PL(int arr[], int *size, int *loc) {
     if (*size >= 100) { // Check if array is full
         printf("Array is full. Insertion is not possible.\n");
-        return 0;
+        
     }
 	
     int element;
@@ -83,7 +83,7 @@ int insertion_PL(int arr[], int *size, int *loc) {
 
     // Shift elements to the right to make space for the new element
     for(int i = *size; i > *loc; i--) {
-        arr[i] = arr[i - 1];
+        arr[i] = arr [i - 1];
     }
 
     // Insert the new element at the specified location
