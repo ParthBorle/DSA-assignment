@@ -41,7 +41,7 @@ int main() {
             scanf("%d", &arr[i]);
         }
 
-        // Sorting the array using Bubble Sort
+        // Sorting the array using binary Sort
         for (int i = 0; i < no_elements - 1; i++) {
             for (int j = 0; j < no_elements - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
