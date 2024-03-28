@@ -17,7 +17,7 @@ int bubbleSort(int arr[], int size) {		// function of bubble sort
     int MAX_SIZE = size;
     for (int i = 0; i < MAX_SIZE - 1; i++) {
         int lb = 0;
-        int ub = MAX_SIZE - i - 1;
+        int ub = MAX_SIZE  - 1;
         for (int j = lb; j < ub; j++) {
             // Compare  elements
             if (arr[j] > arr[j + 1]) {
