@@ -25,7 +25,7 @@ int bubbleSort(int arr[], int size) {		// function of bubble sort
                 swap(&arr[j], &arr[j + 1]);
 
                 // Print the current state of the array
-                printf("Step %d: ", i * (MAX_SIZE - 1) + j + 1);
+                printf("Step ");
                 printArray(arr, size);
                 
             }
