@@ -36,10 +36,9 @@ int main(){
                 struct node *tmp;
                 if (top==NULL){
                     printf("Stack is Empty\n");
-                
                 }
-				else
-				{
+		else
+		{
                     tmp=top;
                     while(tmp!=NULL){
                         printf("%d\n",tmp->data);
@@ -48,23 +47,28 @@ int main(){
                 }
                 break;
             }
-            case 3:{
+            case 3:
+		{
                 if (top==NULL){
                     printf("Stack is Empty\n");
                     
                 }
-				else
-				{
+		else
+		{
                     printf("The top of the Data is %d\n",top->data);
                 }
                 break;
             }
-            case 4:{
+            case 4:
+		{
                 struct node *tmp;
-                if (top==NULL){
+                if (top==NULL)
+		{
                     printf("The stack is Empty\n");
                     return 0;
-                }else{
+                }
+		else
+		{
                     tmp=top;
                     printf("The popped element is %d\n",tmp->data);
                     top=tmp->next;
@@ -72,12 +76,14 @@ int main(){
                 }
                 break;
             }
-            case 5:{
+            case 5:
+		{
                 printf("GOODBYE");
                 break;
             default:
                 printf("Invalid choice\n");
             }
         }
-    }while(ch<5);
+    }
+	    while(ch<5);
 }
