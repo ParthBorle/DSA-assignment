@@ -3,11 +3,15 @@
 
 
 // Function to insert an element into the stack
-void push(int stack[], int top, int max) {
+void push(int stack[], int top, int max) 
+{
     int data;
-    if (top == max - 1) {
+    if (top == max - 1) 
+    {
         printf("Stack overflow\n");
-    } else {
+    } 
+    else
+    {
         printf("Enter element: ");
         scanf("%d", &data);
         top++;
@@ -16,10 +20,14 @@ void push(int stack[], int top, int max) {
 }
 
 // Function to delete an element from the stack
-void pop(int stack[], int top) {
-    if (top == -1) {
+void pop(int stack[], int top) 
+{
+    if (top == -1) 
+    {
         printf("Stack underflow\n");
-    } else {
+    } 
+    else
+    {
         printf("Deleted element: %d\n", stack[top]);
         (top)--;
     }
@@ -29,9 +37,12 @@ void pop(int stack[], int top) {
 void display(int stack[], int top)
 {
 	int i;
-    if (top == -1) {
+    if (top == -1) 
+    {
         printf("Stack is empty\n");
-    } else {
+    }
+    else
+    {
         printf("Elements in the stack:\n");
         for (int i = top; i >= 0; i--) {
             printf("%d\n", stack[i]);
@@ -40,15 +51,20 @@ void display(int stack[], int top)
 }
 
 // Function to peek at the top element of the stack
-void peek(int stack[], int top) {
-    if (top == -1) {
+void peek(int stack[], int top)
+{
+    if (top == -1) 
+    {
         printf("Stack is empty\n");
-    } else {
+    } 
+    else
+    {
         printf("The top of the stack is %d\n", stack[top]);
     }
 }
 
-int main() {
+int main() 
+{
 	int max;
 	printf("enter the max size");
 	scanf("%d",&max);
