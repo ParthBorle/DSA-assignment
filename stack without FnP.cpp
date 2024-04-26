@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int max;
     int tmp = 0;
     printf("Enter the size of stack: ");
@@ -20,13 +21,16 @@ int main() {
         printf("\nEnter your choice: ");
         scanf("%d", &option);
 
-        switch (option) {
+        switch (option) 
+        {
             case 1:
                 printf("Enter element: ");
                 scanf("%d", &data);
                 if (top == max - 1) {
                     printf("Stack overflow\n");
-                } else {
+                } 
+                else
+                {
                     top++;
                     stack[top] = data;
                 }
@@ -35,7 +39,9 @@ int main() {
             case 2:
                 if (top == -1) {
                     printf("Underflow\n");
-                } else {
+                }
+                else 
+                {
                     data = stack[top];
                     top--;
                     printf("\nDeleted element is %d\n", data);
@@ -45,10 +51,13 @@ int main() {
             case 3:
                 if (top == -1) {
                     printf("Stack is empty\n");
-                } else {
+                }
+                else
+                {
                     printf("\nElements in array are:\n");
                     tmp = 0; // Reset tmp to traverse from the beginning
-                    while (tmp <= top) {
+                    while (tmp <= top)
+                        {
                         printf("%d\n", stack[tmp]);
                         tmp++;
                     }
