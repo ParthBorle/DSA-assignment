@@ -28,9 +28,12 @@ int main() {
             case 1:
                 if(rear->next == NULL) {
                     printf("Overflow\n");
-                } else {
+                } 
+                else
+                {
                     struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
-                    if (newnode == NULL) {
+                    if (newnode == NULL)
+                    {
                         printf("Memory allocation failed\n");
                         break;
                     }
@@ -38,9 +41,12 @@ int main() {
                     scanf("%d", &val);
                     newnode->data = val;
                     newnode->next = NULL;
-                    if (front == NULL) {
+                    if (front == NULL)
+                    {
                         front = rear = newnode;
-                    } else {
+                    }
+                    else
+                    {
                         rear->next = newnode;
                         rear = newnode;
                     }
@@ -48,9 +54,12 @@ int main() {
                 break;
 
             case 2:
-                if(front == NULL) {
+                if(front == NULL)
+                {
                     printf("Underflow\n");
-                } else {
+                }
+                else
+                {
                     struct Node* tmp;
                     tmp=front;
                     tmp->data=val;
@@ -62,12 +71,16 @@ int main() {
                 break;
 
             case 3:
-                if(front == NULL) {
+                if(front == NULL)
+                {
                     printf("Queue is empty\n");
-                } else {
+                }
+                else
+                {
                     printf("Queue elements: ");
                     struct Node* tmp = front;
-                    while(tmp != NULL) {
+                    while(tmp != NULL) 
+                    {
                         printf("%d ", tmp->data);
                         tmp = tmp->next;
                     }
@@ -83,7 +96,8 @@ int main() {
                 printf("Invalid option\n");
                 break;
         }
-    } while(option != 4);
+    }
+        while(option != 4);
 
     
 
