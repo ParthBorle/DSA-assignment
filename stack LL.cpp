@@ -7,9 +7,11 @@ struct node{
 };
 struct node *top=NULL;
 
-int main(){
+int main()
+{
     int ch;
-    do{
+    do
+    {
         printf("\n1. Push the element\n");
         printf("2. Display\n");
         printf("3. Peek the element\n");
