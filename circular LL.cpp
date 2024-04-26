@@ -27,21 +27,26 @@ int main() {
         scanf("%d", &choice);
 
         switch(choice) {
-            case 1: {
+            case 1:
+            {
                 head = NULL;
                 int count = 1;
                 int data;
-                do {
+                do 
+                {
                     newnode = (struct node*)malloc(sizeof(struct node));
                     printf("Enter the element you want to insert: ");
                     scanf("%d", &data);
                     newnode->data = data;
                     newnode->next = NULL;
 
-                    if (head == NULL) {
+                    if (head == NULL) 
+                    {
                         head = newnode;
                         newnode->next = head; // Pointing back to itself for circularity
-                    } else {
+                    }
+                    else
+                    {
                         temp = head;
                         while (temp->next != head)
                             temp = temp->next;
@@ -53,20 +58,27 @@ int main() {
                     printf("Do you want to continue(1, 0): ");
                     scanf("%d", &choice);
                     count++;
-                } while (choice == 1);
+                } 
+                    while (choice == 1);
                 break;
             }
 
-            case 2: {
-                if (head == NULL) {
+            case 2: 
+        {
+                if (head == NULL)
+                {
                     printf("NO NODE IS AVAILABLE\n");
-                } else {
+                }
+                else
+                {
                     temp = head;
                     printf("Node contains: ");
-                    do {
+                    do
+                        {
                         printf("%d ", temp->data);
                         temp = temp->next;
-                    } while (temp != head);
+                    }
+                        while (temp != head);
                     printf("\n");
                 }
                 break;
@@ -124,8 +136,10 @@ int main() {
                 printf("Enter the element to be inserted: ");
                 scanf("%d", &element);
                 temp = head;
-                do {
-                    if (temp->data == value) {
+                do 
+                {
+                    if (temp->data == value)
+                    {
                         newnode = (struct node*)malloc(sizeof(struct node));
                         newnode->data = element;
                         newnode->next = temp->next;
@@ -133,17 +147,23 @@ int main() {
                         break;
                     }
                     temp = temp->next;
-                } while (temp != head);
+                } 
+                while (temp != head);
                 break;
             }
 
             case 7: {
-                if (head == NULL) {
+                if (head == NULL) 
+                {
                     printf("Underflow\n");
-                } else if (head->next == head) {
+                }
+                else if (head->next == head)
+                {
                     free(head);
                     head = NULL;
-                } else {
+                }
+                else
+                {
                     temp = head;
                     while (temp->next != head)
                         temp = temp->next;
@@ -155,15 +175,21 @@ int main() {
             }
 
             case 8: {
-                if (head == NULL) {
+                if (head == NULL) 
+                {
                     printf("Underflow\n");
-                } else if (head->next == head) {
+                }
+                else if (head->next == head) 
+                {
                     free(head);
                     head = NULL;
-                } else {
+                }
+                else
+                {
                     temp = head;
                     prev = NULL;
-                    while (temp->next != head) {
+                    while (temp->next != head)
+                    {
                         prev = temp;
                         temp = temp->next;
                     }
@@ -174,19 +200,27 @@ int main() {
             }
 
             case 9: {
-                if (head == NULL) {
+                if (head == NULL) 
+                {
                     printf("UNDERFLOW");
-                } else {
+                }
+                else
+                {
                     int pos;
                     printf("Enter the position to delete: ");
                     scanf("%d", &pos);
-                    if (pos < 1) {
+                    if (pos < 1)
+                    {
                         printf("Invalid position\n");
-                    } else if (pos == 1) {
-                        if (head->next == head) {
+                    } 
+                    else if (pos == 1) 
+                    {
+                        if (head->next == head) 
+                        {
                             free(head);
                             head = NULL;
-                        } else {
+                        }
+                        else {
                             temp = head;
                             while (temp->next != head)
                                 temp = temp->next;
@@ -194,18 +228,24 @@ int main() {
                             free(head);
                             head = temp->next;
                         }
-                    } else {
+                    }
+                    else
+                    {
                         temp = head;
                         prev = NULL;
                         int i = 1;
-                        while (i < pos && temp->next != head) {
+                        while (i < pos && temp->next != head)
+                            {
                             prev = temp;
                             temp = temp->next;
                             i++;
                         }
-                        if (temp == head) {
+                        if (temp == head)
+                        {
                             printf("Position not found\n");
-                        } else {
+                        }
+                        else
+                        {
                             prev->next = temp->next;
                             free(temp);
                         }
