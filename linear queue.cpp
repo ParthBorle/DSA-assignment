@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-int main() {
+int main() 
+{
     int MAX;
     printf("Enter the length of the queue: ");
     scanf("%d", &MAX);
@@ -8,7 +9,7 @@ int main() {
     int Q[MAX], front = -1, rear = -1;
     int val, option;
    
-    do {
+    do{
         printf("\n *****MAIN MENU*****");
         printf("\n 1. INSERTION");
         printf("\n 2. DELETION");
@@ -17,7 +18,8 @@ int main() {
         printf("\n Enter your option: ");
         scanf("%d", &option);
 
-        switch(option) {
+        switch(option)
+	{
             case 1:
                 if(rear == MAX - 1) {
                     printf("Overflow\n");
@@ -31,10 +33,10 @@ int main() {
                 scanf("%d", &val);
                 rear = rear + 1;
                 Q[rear] = val;
-			}
-				break;
+	}
+		break;
 
-            case 2:
+            case 2:{
                 int value;
                 if(front < 0) {
                     printf("Underflow\n");
@@ -47,8 +49,10 @@ int main() {
                 }
                 printf("Deleted element: %d\n", value);
                 break;
+	    }
 
             case 3:
+	{
                 if(front < 0) {
                     printf("Queue is empty\n");
                 } else {
@@ -63,11 +67,12 @@ int main() {
                     printf("\n");
                 }
                 break;
-
+	}
             case 4:
+	{
                 printf("GOOD BYE\n");
                 break;
-
+	}
             default:
                 printf("Invalid option\n");
                 break;
