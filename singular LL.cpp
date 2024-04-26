@@ -28,20 +28,25 @@ int main()
         scanf( "%d", &choice);
         
 	
-		if(choice>10){
+		if(choice>10)
+		{
             printf("invalid choice");
         }
     
 
     
-        switch(choice){
-            case 1:{
+        switch(choice)
+	{
+            case 1:
+	{
 
                 head=NULL;
                 int choice=1;
                 int count=1;
-                while(choice){
-                    newnode=(struct node*)malloc(sizeof(struct node));            ///memory allocate to make node and store the address of it in the new node to access it.
+                while(choice)
+		{
+                    newnode=(struct node*)malloc(sizeof(struct node));     
+			//memory allocate to make node and store the address of it in the new node to access it.
 
                     ///inserting values.
                     printf("Enter the element you want to insert: ");
@@ -49,10 +54,12 @@ int main()
                     newnode->next=NULL;
 
                     //conditions for checking if the node is empty of not.
-                    if(head==NULL){
+                    if(head==NULL)
+		    {
                         head=temp=newnode;
                     }
-                    else{
+                    else
+		    {
                         temp->next=newnode;
                         temp=newnode;
                     }
@@ -67,49 +74,57 @@ int main()
                 break;
             }
 
-            case 2:{
-                if (head == NULL){
+            case 2:
+	{
+                if (head == NULL)
+		{
                     printf("NO NODE IS AVAILABLE ");
-                }
-                else{
+		}
+                else
+		{
                     temp=head;
                     printf("Node contains : ");
-                    while(temp!= NULL){
+                    while(temp!= NULL)
+		    {
                         printf(" %d",temp->data);
                         temp=temp->next;
                     }
                 }
                 break;
 
-            }
-            case 3:{
+        }
+            case 3:
+	{
             	    int ch=1;
-            	    while(ch){
+            	    while(ch)
+		    {
 					
             		int num;
-					printf("\n Enter the data : ");
-					scanf("%d", &num);
-					newnode= (struct node*)malloc(sizeof(struct node));
-					newnode -> data = num;
-					newnode -> next = head;
-					head=newnode;
-					//traversing to print the list					
-					temp=head;
-				     printf("\ndo you want to continue(1,0) = ");
-                    scanf("%d",&ch);
-				}
+				printf("\n Enter the data : ");
+				scanf("%d", &num);
+				newnode= (struct node*)malloc(sizeof(struct node));
+				newnode -> data = num;
+				newnode -> next = head;
+				head=newnode;
+				//traversing to print the list					
+				temp=head;
+			        printf("\ndo you want to continue(1,0) = ");
+			       scanf("%d",&ch);
+		     }
                     while(temp!= NULL)
                     {
-					    printf(" %d",temp->data);
+			printf(" %d",temp->data);
                         temp=temp->next;
-		 	        }
+		   }
                 break;
             }
 
             
-            case 4:{
+            case 4:
+	{
                 int ch=1;
-                while(ch){
+                while(ch)
+		{
                     newnode=(struct node*)malloc(sizeof(struct node)); 
                                                
                     printf("Enter the number of elements you want to insert: ");
@@ -117,7 +132,8 @@ int main()
                     newnode->next=NULL;
 
                     temp=head;
-                    while(temp->next!= NULL){
+                    while(temp->next!= NULL)
+		    {
                         temp=temp->next;
                     }
                     temp->next=newnode;
@@ -129,7 +145,8 @@ int main()
 
                 temp=head;
                 printf("Node contains : ");
-                while(temp!= NULL){
+                while(temp!= NULL)
+		{
                     printf(" %d",temp->data);
                     temp=temp->next;
                 }
@@ -148,15 +165,18 @@ int main()
                 newnode = (struct node*)malloc(sizeof(struct node));
                 newnode->data = num;
 
-				if (pos==0){
-					printf("INVALID LOCATION");
-				}
+		if (pos==0)
+		{
+		printf("INVALID LOCATION");
+		}
 				
-                if (pos == 1) {
+                if (pos == 1) 
+		{
                     newnode->next = head;
                     head = newnode;
             }
-                else{
+                else
+		{
                 	temp=head;
                 	count=0;
                 	while (count!=pos-1)
@@ -164,49 +184,45 @@ int main()
                 		prev=temp;
                 		count=count+1;
                 		temp=temp->next;
-					}
-					newnode->next=prev->next;
-					prev->next=newnode;
-				}
+			}
+				newnode->next=prev->next;
+				prev->next=newnode;
+		}
                 break;
             }
             case 6:{
             	
             	int value,element;
             	int count=0;
-            	
-            		newnode = (struct node*)malloc(sizeof(struct node));
+		newnode = (struct node*)malloc(sizeof(struct node));
                 printf("\n Enter the value: ");
                 scanf("%d",&value);
-                
-                
                 temp=head;
                 while(temp->data!=value)
-	                {
-	                	if(temp->data==value){
-	                		count++;
-	                		
-						}
-	                	
-	                	temp=temp->next;
-					}
-					if(count>1){
-						printf("there are %d Element present of this value",count);
+	       {
+               	if(temp->data==value)
+		{
+	            count++;
+		}            	
+	      	temp=temp->next;
+		}
+		if(count>1){
+		printf("there are %d Element present of this value",count);
 						
-					}
-					printf("Enter the element to be entered: ");
-	                scanf("%d",&element);
+		}
+		    printf("Enter the element to be entered: ");
+	            scanf("%d",&element);
 					
-					newnode->data=element;
-					newnode->next=temp->next;
-					temp->next=newnode;
-					
-					temp=head;
-	                while(temp!= NULL){
-	                    printf(" %d",temp->data);
-	                    temp=temp->next;
-					}
-				}
+		newnode->data=element;
+		newnode->next=temp->next;
+		temp->next=newnode;
+         	temp=head;
+		while(temp!= NULL)
+		{
+	 	  printf(" %d",temp->data);
+	            temp=temp->next;
+		}
+	}
 				break;
 		
 			
@@ -214,7 +230,8 @@ int main()
             
             case 7:{
 				
-			    if(head==NULL) {
+			    if(head==NULL)
+			    {
 			        printf("underflow");
 			    }
 				 else if(head->next==NULL)
@@ -225,48 +242,52 @@ int main()
 					 printf("node deleted");
 				}
 				
-				else {
+				else
+				{
 			        temp = head;
 			        head = temp->next;
 			        free(temp);
 			       
 			    }
 			    temp = head;
-			    while(temp != NULL) {
+			    while(temp != NULL)
+			{
 			        printf(" %d", temp->data);
 			        temp = temp->next;
 			    }
-			    
+		    
 
 				
 			    break;
 			}
 			
 			case 8:{
-				if(head==NULL) {
+				if(head==NULL)
+			{
 			        printf("underflow");
-			    }
+		        }
 				 else if(head->next==NULL)
-				{
+			{
 					temp=head;
 					head=NULL;
 					free(temp);
 					 printf("node deleted");
-				}
+			}
 				else
-				{
+			{
 					temp=head;
 					while(temp->next!=NULL)
-					{
+			{
 						prev=temp;
 						temp=temp->next;
-					}
+			}
 					free(temp);
 					prev->next=NULL;
-				}
+			}
 				
 			    temp = head;
-			    while(temp != NULL) {
+			    while(temp != NULL) 
+			    {
 			        printf(" %d", temp->data);
 			        temp = temp->next;
 			    }
@@ -280,25 +301,25 @@ int main()
 				
 				printf("Enter the location at which you want to delete: ");
 				scanf("%d",&value);
-				if (value <= 0) {
+				if (value <= 0)
+			   {
 			        printf("Invalid position.\n");
 			        break;
 			    }
 				temp=head;
 		
-                   int	count=0;
+                        int count=0;
                 	while (count!=value-1)
                 	{
-                		prev=temp;
+                	    prev=temp;
                 	    temp=temp->next;
                 	    count=count+1;
-					}
-					
-				prev->next=temp->next;
+			    prev->next=temp->next;
 				free(temp);
 				
 				temp = head;
-			    while(temp != NULL) {
+			    while(temp != NULL) 
+			    {
 			        printf(" %d", temp->data);
 			        temp = temp->next;
 			    }
