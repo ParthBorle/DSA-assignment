@@ -11,7 +11,7 @@ int selectionSort(int arr[], int max) {
         // Find the index of the smallest element in the unsorted part of the array
         for (loc = i + 1; loc < max; loc++) {
             if (arr[loc] < arr[small]) {
-                small = loc; // Update the index of the smallest element
+                small = loc;
             }
         }
         
@@ -20,7 +20,7 @@ int selectionSort(int arr[], int max) {
         arr[small] = arr[i];
         arr[i] = tmp;
         
-        // Print the current step of the sorting process
+        // Printing current step of the sorting process
         printf("\nStep %d: ", i + 1);
         for (loc = 0; loc < max; loc++) {
             printf("%d ", arr[loc]); 
@@ -49,7 +49,7 @@ int main() {
         printf("%d ", arr[i]);
     }
     
-    // Calling the selectionSort function 
+    
     selectionSort(arr, max);
     
     // Display the sorted array
