@@ -20,8 +20,10 @@ int main(){
 
      
         
-        switch (ch) {
-            case 1:{
+        switch (ch) 
+	{
+            case 1:
+	{
                 int val;
                 printf("Enter the data: ");
                 scanf("%d",&val);
@@ -32,7 +34,8 @@ int main(){
                 top=newnode;
                 break;
             }
-            case 2:{
+            case 2:
+	{
                 struct node *tmp;
                 if (top==NULL){
                     printf("Stack is Empty\n");
