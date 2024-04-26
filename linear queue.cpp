@@ -75,7 +75,7 @@ int main()
 		{
                         printf("%d ", Q[tmp]);
                         tmp = tmp + 1;
-        n       }
+              }
                     printf("\n");
                 }
                 break;
