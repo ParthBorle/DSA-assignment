@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-int main() {
+int main()
+{
     int MAX;
     printf("Enter the length of the queue: ");
     scanf("%d", &MAX);
@@ -17,14 +18,20 @@ int main() {
         printf("\n Enter your option: ");
         scanf("%", option);
 
-        switch(option) {
+        switch(option)
+        {
             case 1:
-                if(rear == &Q[MAX - 1]) {
+                if(rear == &Q[MAX - 1])
+                {
                     printf("Overflow\n");
-                } else if (front == NULL) {
+                }
+                else if (front == NULL) 
+                {
                     front = &Q[0];
                     rear = &Q[0];
-                } else {
+                }
+                else 
+                {
                     printf("Enter the element: ");
                     scanf("%d", &val);
                     *rear = val;
@@ -33,25 +40,34 @@ int main() {
                 break;
 
             case 2:
-                if(front == NULL) {
+                if(front == NULL)
+                {
                     printf("Underflow\n");
-                } else if(front == rear) {
+                }
+                else if(front == rear)
+                {
                     printf("Deleted element: %d\n", *front);
                     front = NULL;
                     rear = NULL;
-                } else {
+                }
+                else
+                {
                     printf("Deleted element: %d\n", *front);
                     front++;
                 }
                 break;
 
             case 3:
-                if(front == NULL) {
+                if(front == NULL)
+                {
                     printf("Queue is empty\n");
-                } else {
+                }
+                else
+                {
                     printf("Queue elements: ");
                     int *tmp = front;
-                    while(tmp < rear) {
+                    while(tmp < rear)
+                    {
                         printf("%d ", *tmp);
                         tmp++;
                     }
@@ -67,7 +83,8 @@ int main() {
                 printf("Invalid option\n");
                 break;
         }
-    } while(option < 4);
+    } 
+        while(option < 4);
 
     return 0;
 }
